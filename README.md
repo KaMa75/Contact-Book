@@ -1,3 +1,14 @@
+## Install JSON Server
+
+npm install -g json-server
+
+## Run JSON Server
+
+In the folder "/src/db" run
+
+json-server --watch db.json
+
+
 # ContactBook
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
