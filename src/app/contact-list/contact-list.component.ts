@@ -17,4 +17,12 @@ export class ContactListComponent implements OnInit {
   ngOnInit() {
   }
 
+  addPerson() {
+    console.log('add');
+  }
+
+  deletePerson() {
+    console.log('delete');
+  }
+
 }
