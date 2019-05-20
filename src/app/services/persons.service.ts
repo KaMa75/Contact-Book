@@ -9,12 +9,21 @@ export class PersonsService {
 
   persons: Array<Person>;
 
-  constructor(private httpService: HttpService) {  }
+  constructor(private httpService: HttpService) {
 
-  getPersons(): Array<Person> {
+  }
+
+  getPersons(): void {
     this.httpService.getPersonsFromDb().subscribe(data => {
       this.persons = data;
+      console.log(this.persons);
     });
-    console.log(this.persons);
   }
+
+  getPersonFromId(id: number) {
+    // this.httpService.getPersonFromDb(id).subscribe(data => {
+    //   console.log(data);
+    // });
+  }
+
 }
