@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { personsData } from '../../mock-data/mock-persons';
 
 @Component({
   selector: 'app-contact-list',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactListComponent implements OnInit {
 
-  constructor() { }
+  personsData = personsData;
+
+  constructor() {
+    console.log(personsData);
+  }
 
   ngOnInit() {
   }
