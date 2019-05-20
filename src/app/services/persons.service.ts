@@ -1,3 +1,4 @@
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpService } from './http.service';
 import { Person } from '../../models/person';
@@ -7,23 +8,21 @@ import { Person } from '../../models/person';
 })
 export class PersonsService {
 
-  persons: Array<Person>;
+  private persons = new BehaviorSubject<Array<Person>>([]);
 
   constructor(private httpService: HttpService) {
 
   }
 
-  getPersons(): void {
+  getPersons(): Observable<Array<Person>> {
     this.httpService.getPersonsFromDb().subscribe(data => {
-      this.persons = data;
-      console.log(this.persons);
+      this.persons.next(data);
     });
+    return this.persons.asObservable();
   }
 
   getPersonFromId(id: number) {
-    // this.httpService.getPersonFromDb(id).subscribe(data => {
-    //   console.log(data);
-    // });
+
   }
 
   deletePerson(id: number) {

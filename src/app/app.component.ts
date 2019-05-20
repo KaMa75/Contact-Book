@@ -9,7 +9,7 @@ import { PersonsService } from './services/persons.service';
 export class AppComponent {
 
   constructor(private personsService: PersonsService) {
-    console.log('inject persons service');
+
   }
 
 }

@@ -12,7 +12,6 @@ export class HttpService {
   dbUrl: string = dbUrl;
 
   constructor(private http: HttpClient) {
-    console.log(this.dbUrl);
   }
 
   getPersonsFromDb(): Observable<Array<Person>> {
