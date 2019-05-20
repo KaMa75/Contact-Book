@@ -23,8 +23,8 @@ export class ContactListComponent implements OnInit {
     console.log('add');
   }
 
-  deletePerson() {
-    console.log('delete');
-  }
+  // deletePerson() {
+  //   console.log('delete');
+  // }
 
 }

@@ -26,4 +26,11 @@ export class PersonsService {
     // });
   }
 
+  deletePerson(id: number) {
+    this.httpService.deletePersonFromDb(id).subscribe(data => {
+      console.log(data);
+    })
+    console.log(this.persons);
+  }
+
 }
