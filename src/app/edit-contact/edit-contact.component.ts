@@ -10,7 +10,7 @@ import { PersonsService } from '../services/persons.service';
 })
 export class EditContactComponent implements OnInit {
 
-  private person: Person;
+  person: Person;
 
   constructor(private route: ActivatedRoute, private personsService: PersonsService) {  }
 

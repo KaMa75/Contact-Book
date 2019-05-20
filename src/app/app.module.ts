@@ -12,6 +12,8 @@ import { AddContactComponent } from './add-contact/add-contact.component';
 import { EditContactComponent } from './edit-contact/edit-contact.component';
 import { DetailsContactComponent } from './details-contact/details-contact.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormComponent } from './form/form.component';
 
 @NgModule({
   declarations: [
@@ -20,11 +22,13 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     AddContactComponent,
     EditContactComponent,
     DetailsContactComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
     MatButtonModule,
