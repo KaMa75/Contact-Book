@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Person } from 'src/models/person';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PersonsService } from '../services/persons.service';
 
 @Component({
@@ -12,11 +12,14 @@ export class EditContactComponent implements OnInit {
 
   person: Person;
 
-  constructor(private route: ActivatedRoute, private personsService: PersonsService) {  }
+  constructor(private route: ActivatedRoute, private router: Router, private personsService: PersonsService) {  }
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
     this.person = this.personsService.getPersonFromId(id);
+    if (!this.person) {
+      this.router.navigate(['']);
+    }
   }
 
 }

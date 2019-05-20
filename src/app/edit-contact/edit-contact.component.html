@@ -1,5 +1,4 @@
-<!-- <p>
-  {{person.nick}}, {{person.firstName}} {{person.lastName}}, {{person.email}}, {{person.phone}}, {{person.sex}}
-</p> -->
-<app-form [initFormData]="person"></app-form>
-<!-- <button routerLink="">Powrót</button> -->
+<ng-container *ngIf="person">
+  <app-form [initFormData]="person"></app-form>
+</ng-container>
+

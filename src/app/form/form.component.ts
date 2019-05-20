@@ -20,7 +20,6 @@ export class FormComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    console.log(this.initFormData);
     this.personForm = new FormGroup({
       nick: new FormControl(this.initFormData.nick, [Validators.required, Validators.maxLength(24)]),
       firstName: new FormControl(this.initFormData.firstName, [Validators.required, Validators.maxLength(24)]),
