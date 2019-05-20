@@ -4,5 +4,5 @@
     {{i + 1}} - {{person.nick}}, {{person.firstName}} {{person.lastName}}, {{person.email}}, {{person.phone}}, {{person.sex}}
     <button [routerLink]="['/clients/details', person.id]">Szczegóły</button>
     <button [routerLink]="['/clients/edit', person.id]">Edytuj</button>
-    <button (click)="personsService.deletePerson(person.id)">Usuń</button>
+    <button (click)="personsService.deletePerson(person)">Usuń</button>
   </div>

@@ -12,7 +12,7 @@ export class ContactListComponent implements OnInit {
   personsData: Array<Person> = [];
 
   constructor(private personsService: PersonsService) {
-    this.personsService.getPersons().subscribe((data: Array<Person>) => {
+    this.personsService.getPersonsObs().subscribe((data: Array<Person>) => {
       this.personsData = data;
     });
   }

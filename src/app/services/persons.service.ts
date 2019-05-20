@@ -8,28 +8,35 @@ import { Person } from '../../models/person';
 })
 export class PersonsService {
 
-  private persons = new BehaviorSubject<Array<Person>>([]);
+  persons: Array<Person> = [];
+
+  personsObs = new BehaviorSubject<Array<Person>>([]);
 
   constructor(private httpService: HttpService) {
 
   }
 
-  getPersons(): Observable<Array<Person>> {
+  getPersons() {
     this.httpService.getPersonsFromDb().subscribe(data => {
-      this.persons.next(data);
+      this.persons = data;
+      this.personsObs.next(this.persons);
     });
-    return this.persons.asObservable();
   }
 
   getPersonFromId(id: number) {
 
   }
 
-  deletePerson(id: number) {
-    this.httpService.deletePersonFromDb(id).subscribe(data => {
-      console.log(data);
-    })
-    console.log(this.persons);
+  deletePerson(personToDelete: Person) {
+    this.httpService.deletePersonFromDb(personToDelete.id).subscribe(data => {
+      this.persons = this.persons.filter((person: Person) => person !== personToDelete);
+      this.personsObs.next(this.persons);
+    });
+
   }
 
+  getPersonsObs(): Observable<Array<Person>> {
+    this.getPersons();
+    return this.personsObs.asObservable();
+  }
 }
