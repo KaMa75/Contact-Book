@@ -2,8 +2,8 @@
 
   <div *ngFor="let person of personsData; let i = index">
     {{i + 1}} - {{person.nick}}, {{person.firstName}} {{person.lastName}}, {{person.email}}, {{person.phone}}, {{person.sex}}
-    <button routerLink="/clients/details/1">Szczegóły</button>
-    <button routerLink="clients/edit/1">Edytuj</button>
+    <button [routerLink]="['/clients/details', person.id]">Szczegóły</button>
+    <button [routerLink]="['/clients/edit', person.id]">Edytuj</button>
     <button (click)="deletePerson()">Usuń</button>
   </div>
 
