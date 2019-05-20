@@ -23,8 +23,9 @@ export class PersonsService {
     });
   }
 
-  getPersonFromId(id: number) {
-
+  getPersonFromId(id: string): Person {
+    const personArr = this.persons.filter(person => person.id === parseInt(id, 10));
+    return personArr[0];
   }
 
   deletePerson(personToDelete: Person) {
