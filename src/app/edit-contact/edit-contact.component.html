@@ -1,4 +1,4 @@
 <ng-container *ngIf="person">
-  <app-form [initFormData]="person"></app-form>
+  <app-form [initFormData]="person" (dataToSaveInDb)="saveInDb($event)"> </app-form>
 </ng-container>
 

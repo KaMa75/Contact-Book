@@ -22,4 +22,8 @@ export class EditContactComponent implements OnInit {
     }
   }
 
+  saveInDb(person: Person): void {
+    person.id = this.person.id;
+    this.personsService.updatePerson(person);
+  }
 }

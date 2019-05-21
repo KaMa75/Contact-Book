@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Person } from 'src/models/person';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
@@ -12,7 +12,10 @@ export class FormComponent implements OnInit {
   @Input()
   initFormData = {nick: null, firstName: null, lastName: null, email: null, phone: null, sex: null};
 
-  newPerson: Person;
+  @Output()
+  dataToSaveInDb = new EventEmitter<Person>();
+
+  newPersonData: Person;
   personForm: FormGroup;
 
   sexOptions = [null, 'Mężczyzna', 'Kobieta'];
@@ -31,7 +34,7 @@ export class FormComponent implements OnInit {
   }
 
   onSubmit() {
-    this.newPerson = {
+    this.newPersonData = {
       nick: this.personForm.value.nick,
       firstName: this.personForm.value.firstName,
       lastName: this.personForm.value.lastName,
@@ -39,6 +42,7 @@ export class FormComponent implements OnInit {
       phone: this.personForm.value.phone,
       sex: this.personForm.value.sex
     };
+    this.dataToSaveInDb.emit(this.newPersonData);
     this.onReset();
   }
 

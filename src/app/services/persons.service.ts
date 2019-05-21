@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpService } from './http.service';
@@ -12,7 +13,7 @@ export class PersonsService {
 
   personsObs = new BehaviorSubject<Array<Person>>([]);
 
-  constructor(private httpService: HttpService) {
+  constructor(private httpService: HttpService, private router: Router) {
 
   }
 
@@ -33,11 +34,23 @@ export class PersonsService {
       this.persons = this.persons.filter((person: Person) => person !== personToDelete);
       this.personsObs.next(this.persons);
     });
+  }
 
+  updatePerson(personToUpdate: Person) {
+    this.httpService.updatePersonInDb(personToUpdate).subscribe(person => {
+      this.router.navigate(['']);
+    });
+  }
+
+  addPerson(personToAdd: Person) {
+    this.httpService.addPersonToDb(personToAdd).subscribe(() => {
+      this.router.navigate(['']);
+    });
   }
 
   getPersonsObs(): Observable<Array<Person>> {
     this.getPersons();
     return this.personsObs.asObservable();
   }
+
 }

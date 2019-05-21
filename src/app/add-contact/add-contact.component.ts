@@ -1,4 +1,6 @@
+import { Person } from './../../models/person';
 import { Component, OnInit } from '@angular/core';
+import { PersonsService } from '../services/persons.service';
 
 @Component({
   selector: 'app-add-contact',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddContactComponent implements OnInit {
 
-  constructor() { }
+  constructor(private personsService: PersonsService) { }
 
   ngOnInit() {
+  }
+
+  saveInDb(person: Person): void {
+    this.personsService.addPerson(person);
   }
 
 }
