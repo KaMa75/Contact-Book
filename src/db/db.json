@@ -42,7 +42,7 @@
       "lastName": "asdf",
       "email": "asdf@saf",
       "phone": "2222222",
-      "sex": "Kobieta",
+      "sex": "Mężczyzna",
       "id": 5
     },
     {
@@ -55,13 +55,22 @@
       "id": 6
     },
     {
-      "nick": "1",
+      "nick": "3",
       "firstName": "2",
       "lastName": "3",
       "email": "1@q",
       "phone": "23",
       "sex": "Mężczyzna",
       "id": 7
+    },
+    {
+      "nick": "Gniewko",
+      "firstName": "Gniewomir",
+      "lastName": "Krzesiński",
+      "email": "d@sa",
+      "phone": "sdf",
+      "sex": "Mężczyzna",
+      "id": 8
     }
   ]
 }

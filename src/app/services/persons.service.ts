@@ -38,8 +38,14 @@ export class PersonsService {
 
   updatePerson(personToUpdate: Person) {
     this.httpService.updatePersonInDb(personToUpdate).subscribe(person => {
+      const index = this.findPersonInArray(person.id);
+      this.persons[index] = person;
       this.router.navigate(['']);
     });
+  }
+
+  findPersonInArray(id: number) {
+    return this.persons.indexOf(this.persons.filter((person: Person) => person.id === id)[0]);
   }
 
   addPerson(personToAdd: Person) {
@@ -50,7 +56,6 @@ export class PersonsService {
   }
 
   getPersonsObs(): Observable<Array<Person>> {
-    // this.getPersons();
     return this.personsObs.asObservable();
   }
 
