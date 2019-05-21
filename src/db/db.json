@@ -44,6 +44,24 @@
       "phone": "2222222",
       "sex": "Kobieta",
       "id": 5
+    },
+    {
+      "nick": "asd",
+      "firstName": "asd",
+      "lastName": "asd",
+      "email": "asd@asd",
+      "phone": "asd",
+      "sex": "Kobieta",
+      "id": 6
+    },
+    {
+      "nick": "1",
+      "firstName": "2",
+      "lastName": "3",
+      "email": "1@q",
+      "phone": "23",
+      "sex": "Mężczyzna",
+      "id": 7
     }
   ]
 }

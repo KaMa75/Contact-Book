@@ -14,7 +14,7 @@ export class PersonsService {
   personsObs = new BehaviorSubject<Array<Person>>([]);
 
   constructor(private httpService: HttpService, private router: Router) {
-
+    this.getPersons();
   }
 
   getPersons() {
@@ -44,12 +44,13 @@ export class PersonsService {
 
   addPerson(personToAdd: Person) {
     this.httpService.addPersonToDb(personToAdd).subscribe(() => {
+      this.getPersons();
       this.router.navigate(['']);
     });
   }
 
   getPersonsObs(): Observable<Array<Person>> {
-    this.getPersons();
+    // this.getPersons();
     return this.personsObs.asObservable();
   }
 
