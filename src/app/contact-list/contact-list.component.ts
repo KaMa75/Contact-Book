@@ -1,24 +1,7 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PersonsService } from '../services/persons.service';
 import { Person } from 'src/models/person';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-
-@Component({
-  selector: 'dialog-delete-contact',
-  templateUrl: 'dialog-delete-contact.html',
-})
-export class DialogDeleteContact {
-
-  constructor(public dialogRef: MatDialogRef<DialogDeleteContact>, @Inject(MAT_DIALOG_DATA) public data: Person) {
-      console.log('dialog')
-    }
-
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
-}
-
-// ----------------------
+import { DelDialogService } from '../services/del-dialog.service';
 
 @Component({
   selector: 'app-contact-list',
@@ -30,7 +13,7 @@ export class ContactListComponent implements OnInit {
   displayedColumns: Array<string> = ['nick', 'name', 'email', 'phone', 'sex', 'actions'];
   personsData: Array<Person> = [];
 
-  constructor(private personsService: PersonsService, public dialog: MatDialog) {
+  constructor(private personsService: PersonsService, private delService: DelDialogService) {
     this.personsService.getPersonsObs().subscribe((data: Array<Person>) => {
       this.personsData = data;
     });
@@ -43,20 +26,12 @@ export class ContactListComponent implements OnInit {
     console.log('add');
   }
 
-  openDialog(person: Person): void {
-    console.log(person);
-    const dialogRef = this.dialog.open(DialogDeleteContact, {
-      width: '250px',
-      // data: person
+  openDialog(person: Person) {
+    const name = `${person.firstName} ${person.lastName}`;
+    this.delService.openDelDialog(name).afterClosed().subscribe(response => {
+      if(response) {
+        this.personsService.deletePerson(person);
+      }
     });
-
-    // dialogRef.afterClosed().subscribe(result => {
-    //   console.log('The dialog was closed');
-    // });
-
-    // dialogRef.close('Zamykanie');
   }
-
 }
-
-

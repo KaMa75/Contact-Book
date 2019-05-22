@@ -1,0 +1,14 @@
+<h1 mat-dialog-title color="primary">Usuwanie kontaktu!</h1>
+<div mat-dialog-content>
+  Jesteś pewien, że chcesz usunąć kontakt: <strong>{{data.name}}</strong>?
+</div>
+<div mat-dialog-actions>
+  <div class="mx-2">
+
+    <button mat-flat-button color="primary" [mat-dialog-close]="false">Zrezygnuj</button>
+  </div>
+  <div class="mx-2">
+
+    <button mat-flat-button color="warn" [mat-dialog-close]="true">Usuń</button>
+  </div>
+</div>

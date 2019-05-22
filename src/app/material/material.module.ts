@@ -2,8 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatTableModule, MatTooltipModule, MatCardModule, MatToolbarModule, MatIconModule } from '@angular/material';
-import { MatDialogModule } from '@angular/material/dialog';
+import {
+  MatButtonModule, MatTableModule, MatTooltipModule, MatCardModule,
+  MatToolbarModule, MatIconModule, MatDialogModule
+} from '@angular/material';
 
 @NgModule({
   declarations: [],
