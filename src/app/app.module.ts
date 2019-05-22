@@ -1,12 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatTableModule, MatTooltipModule, MatCardModule, MatToolbarModule, MatIconModule } from '@angular/material';
-import { MatDialogModule } from '@angular/material/dialog';
-
 import { AppRoutingModule } from './app-routing.module';
+import { MaterialModule } from './material/material.module';
+
 import { AppComponent } from './app.component';
 import { ContactListComponent, DialogDeleteContact } from './contact-list/contact-list.component';
 import { AddContactComponent } from './add-contact/add-contact.component';
@@ -32,14 +29,7 @@ import { FormComponent } from './form/form.component';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    BrowserAnimationsModule,
-    MatButtonModule,
-    MatTableModule,
-    MatTooltipModule,
-    MatCardModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatDialogModule
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
