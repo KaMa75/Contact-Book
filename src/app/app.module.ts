@@ -2,12 +2,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { MatButtonModule, MatMenuModule, MatCardModule, MatToolbarModule, MatIconModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule, MatTableModule, MatTooltipModule, MatCardModule, MatToolbarModule, MatIconModule } from '@angular/material';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ContactListComponent } from './contact-list/contact-list.component';
+import { ContactListComponent, DialogDeleteContact } from './contact-list/contact-list.component';
 import { AddContactComponent } from './add-contact/add-contact.component';
 import { EditContactComponent } from './edit-contact/edit-contact.component';
 import { DetailsContactComponent } from './details-contact/details-contact.component';
@@ -19,6 +20,7 @@ import { FormComponent } from './form/form.component';
   declarations: [
     AppComponent,
     ContactListComponent,
+    DialogDeleteContact,
     AddContactComponent,
     EditContactComponent,
     DetailsContactComponent,
@@ -32,10 +34,12 @@ import { FormComponent } from './form/form.component';
     HttpClientModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    MatMenuModule,
+    MatTableModule,
+    MatTooltipModule,
     MatCardModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

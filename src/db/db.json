@@ -10,15 +10,6 @@
       "sex": "Mężczyzna"
     },
     {
-      "id": 2,
-      "nick": "Czarek",
-      "firstName": "Cezar",
-      "lastName": "Grabowski",
-      "email": "CezarGrabowski@teleworm.us",
-      "phone": "+48511060915",
-      "sex": "Mężczyzna"
-    },
-    {
       "id": 3,
       "nick": "Franceska",
       "firstName": "Franciszka",
@@ -44,24 +35,6 @@
       "phone": "2222222",
       "sex": "Mężczyzna",
       "id": 5
-    },
-    {
-      "nick": "asd",
-      "firstName": "asd",
-      "lastName": "asd",
-      "email": "asd@asd",
-      "phone": "asd",
-      "sex": "Kobieta",
-      "id": 6
-    },
-    {
-      "nick": "3",
-      "firstName": "2",
-      "lastName": "3",
-      "email": "1@q",
-      "phone": "23",
-      "sex": "Mężczyzna",
-      "id": 7
     },
     {
       "nick": "Gniewko",

@@ -1,0 +1,17 @@
+.mat-card:first-child {
+  padding: 0;
+  margin-bottom: 2rem;
+}
+
+.mat-card:last-child {
+  border: none;
+}
+
+table {
+  width: 100%;
+}
+
+.actions-td {
+  display: flex;
+  flex-wrap: nowrap;
+}
