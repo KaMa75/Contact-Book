@@ -1,42 +1,72 @@
 <form [formGroup]="personForm" (ngSubmit)="onSubmit()">
-    <label>
-      Pseudonim:
-      <input type="text" formControlName="nick">
-      <p *ngIf="personForm.get('nick').errors && personForm.get('nick').errors.required && personForm.get('nick').dirty">To pole jest wymagane</p>
-      <p *ngIf="personForm.get('nick').errors && personForm.get('nick').errors.maxlength">Zbyt długi nick</p>
-    </label>
-    <label>
-      Imię:
-      <input type="text" formControlName="firstName">
-      <p *ngIf="personForm.get('firstName').errors && personForm.get('firstName').errors.required && personForm.get('firstName').dirty">To pole jest wymagane</p>
-      <p *ngIf="personForm.get('firstName').errors && personForm.get('firstName').errors.maxlength">Zbyt długie imię</p>
-    </label>
-    <label>
-      Nazwisko:
-      <input type="text" formControlName="lastName">
-      <p *ngIf="personForm.get('lastName').errors && personForm.get('lastName').errors.required && personForm.get('lastName').dirty">To pole jest wymagane</p>
-      <p *ngIf="personForm.get('lastName').errors && personForm.get('lastName').errors.maxlength">Zbyt długie nazwisko</p>
-    </label>
-    <label>
-      Adres e-mail:
-      <input type="text" formControlName="email">
-      <p *ngIf="personForm.get('email').errors && personForm.get('email').errors.required && personForm.get('email').dirty">To pole jest wymagane</p>
-      <p *ngIf="personForm.get('email').errors && personForm.get('email').errors.maxlength">Zbyt długi e-mail</p>
-      <p *ngIf="personForm.get('email').errors && personForm.get('email').errors.email && personForm.get('email').touched">Niepoprawny e-mail</p>
-    </label>
-    <label>
-      Telefon:
-      <input type="text" formControlName="phone">
-      <p *ngIf="personForm.get('phone').errors && personForm.get('phone').errors.required && personForm.get('phone').dirty">To pole jest wymagane</p>
-      <p *ngIf="personForm.get('phone').errors && personForm.get('phone').errors.maxlength">Zbyt długi numer telefonu</p>
-    </label>
-    <label>
-      Płeć:
-      <select formControlName="sex">
-        <option *ngFor="let sex of sexOptions" [value]="sex">{{ sex }}</option>
-      </select>
-      <p *ngIf="personForm.get('sex').errors && personForm.get('sex').errors.required && personForm.get('sex').touched">To pole jest wymagane</p>
-    </label>
-    <button type="button" routerLink="">Powrót</button>
-    <button type="submit" [disabled]="personForm.invalid">Dodaj</button>
-  </form>
+  <div class="row">
+
+    <div class="col-12 col-md-6 mb-3">
+      <mat-form-field>
+        <input matInput placeholder="Pseudonim" type="text" formControlName="nick" required>
+        <mat-hint>* Pole wymagane. Maksymalnie 24 znaki.</mat-hint>
+        <mat-error *ngIf="personForm.get('nick').errors?.required">To pole jest wymagane.</mat-error>
+        <mat-error *ngIf="personForm.get('nick').errors?.maxlength">Za dużo znaków.</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="col-12 col-md-6 mb-3">
+      <mat-form-field>
+        <input matInput placeholder="Imię" type="text" formControlName="firstName" required>
+        <mat-hint>* Pole wymagane. Maksymalnie 24 znaki.</mat-hint>
+        <mat-error *ngIf="personForm.get('firstName').errors?.required">To pole jest wymagane.</mat-error>
+        <mat-error *ngIf="personForm.get('firstName').errors?.maxlength">Za dużo znaków..</mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-md-6 mb-3">
+      <mat-form-field>
+        <input matInput placeholder="Nazwisko" type="text" formControlName="lastName" required>
+        <mat-hint>* Pole wymagane. Maksymalnie 24 znaki.</mat-hint>
+        <mat-error *ngIf="personForm.get('lastName').errors?.required">To pole jest wymagane.</mat-error>
+        <mat-error *ngIf="personForm.get('lastName').errors?.maxlength">Za dużo znaków.</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="col-12 col-md-6 mb-3">
+      <mat-form-field>
+        <input matInput placeholder="Adre e-mail" type="text" formControlName="email" required>
+        <mat-hint>* Pole wymagane. Maksymalnie 32 znaki.</mat-hint>
+        <mat-error *ngIf="personForm.get('email').errors?.required">To pole jest wymagane.</mat-error>
+        <mat-error *ngIf="personForm.get('email').errors?.maxlength">Za dużo znaków.</mat-error>
+        <mat-error *ngIf="personForm.get('email').errors?.email">Niepoprawny e-mail.</mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-md-6 mb-3">
+      <mat-form-field required>
+        <input matInput placeholder="Nr telefonu" type="text" formControlName="phone">
+        <mat-hint>* Pole wymagane. Maksymalnie 12 znaków.</mat-hint>
+        <mat-error *ngIf="personForm.get('phone').errors?.required">To pole jest wymagane.</mat-error>
+        <mat-error *ngIf="personForm.get('phone').errors?.maxlength">Za dużo znaków.</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="col-12 col-md-6 mb-3">
+      <mat-form-field required>
+        <mat-select placeholder="Wybierz płeć" formControlName="sex">
+          <mat-option *ngFor="let sex of sexOptions" [value]="sex">{{ sex }}</mat-option>
+        </mat-select>
+        <mat-hint>* Pole wymagane.</mat-hint>
+        <mat-error *ngIf="personForm.get('sex').errors?.required">To pole jest wymagane.</mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 mat-dialog-actions">
+      <button class="mx-1" mat-flat-button color="warn" type="button" (click)="onClose()">Zrezygnuj</button>
+      <button class="mx-1" mat-flat-button color="primary" type="submit" [disabled]="personForm.invalid">Zapisz</button>
+    </div>
+  </div>
+
+</form>

@@ -26,4 +26,9 @@ export class EditContactComponent implements OnInit {
     person.id = this.person.id;
     this.personsService.updatePerson(person);
   }
+
+  closeForm() {
+    this.router.navigate(['']);
+  }
+
 }

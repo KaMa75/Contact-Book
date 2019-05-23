@@ -37,10 +37,11 @@ export class PersonsService {
   }
 
   updatePerson(personToUpdate: Person) {
+    this.router.navigate(['']);
     this.httpService.updatePersonInDb(personToUpdate).subscribe(person => {
       const index = this.findPersonInArray(person.id);
       this.persons[index] = person;
-      this.router.navigate(['']);
+      this.personsObs.next([...this.persons]);
     });
   }
 
@@ -49,9 +50,9 @@ export class PersonsService {
   }
 
   addPerson(personToAdd: Person) {
+    this.router.navigate(['']);
     this.httpService.addPersonToDb(personToAdd).subscribe(() => {
       this.getPersons();
-      this.router.navigate(['']);
     });
   }
 

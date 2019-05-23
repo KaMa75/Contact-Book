@@ -4,7 +4,8 @@ import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatButtonModule, MatTableModule, MatTooltipModule, MatCardModule,
-  MatToolbarModule, MatIconModule, MatDialogModule
+  MatToolbarModule, MatIconModule, MatDialogModule, MatFormFieldModule,
+  MatInputModule, MatSelectModule
 } from '@angular/material';
 
 @NgModule({
@@ -18,7 +19,10 @@ import {
     MatCardModule,
     MatToolbarModule,
     MatIconModule,
-    MatDialogModule
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule
   ],
   exports: [
     CommonModule,
@@ -29,7 +33,10 @@ import {
     MatCardModule,
     MatToolbarModule,
     MatIconModule,
-    MatDialogModule
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule
   ]
 })
 export class MaterialModule { }

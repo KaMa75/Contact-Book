@@ -1,3 +1,4 @@
+import { AddContactComponent } from './../add-contact/add-contact.component';
 import { MatDialog } from '@angular/material';
 import { Injectable } from '@angular/core';
 import { DeleteDialogComponent } from '../contact-list/delete-dialog/delete-dialog.component';
@@ -5,9 +6,15 @@ import { DeleteDialogComponent } from '../contact-list/delete-dialog/delete-dial
 @Injectable({
   providedIn: 'root'
 })
-export class DelDialogService {
+export class DialogService {
 
   constructor(private dialog: MatDialog) { }
+
+  openAddDialog() {
+    this.dialog.open(AddContactComponent, {
+      width: '90%'
+    });
+  }
 
   openDelDialog(name: string) {
     return this.dialog.open(DeleteDialogComponent, {

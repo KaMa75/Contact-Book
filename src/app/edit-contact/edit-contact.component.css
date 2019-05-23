@@ -1,0 +1,8 @@
+.mat-card:first-child {
+  padding: 0;
+  margin-bottom: 2rem;
+}
+
+.mat-card:last-child {
+  border: none;
+}

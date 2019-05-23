@@ -35,7 +35,8 @@ import { DeleteDialogComponent } from './contact-list/delete-dialog/delete-dialo
   providers: [],
   bootstrap: [AppComponent],
   entryComponents: [
-    DeleteDialogComponent
+    DeleteDialogComponent,
+    FormComponent
   ]
 })
 export class AppModule { }

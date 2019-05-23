@@ -15,6 +15,9 @@ export class FormComponent implements OnInit {
   @Output()
   dataToSaveInDb = new EventEmitter<Person>();
 
+  @Output()
+  closeForm = new EventEmitter<Person>();
+
   newPersonData: Person;
   personForm: FormGroup;
 
@@ -42,8 +45,12 @@ export class FormComponent implements OnInit {
       phone: this.personForm.value.phone,
       sex: this.personForm.value.sex
     };
-    this.dataToSaveInDb.emit(this.newPersonData);
     this.onReset();
+    this.dataToSaveInDb.emit(this.newPersonData);
+  }
+
+  onClose() {
+    this.closeForm.emit();
   }
 
   onReset() {

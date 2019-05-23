@@ -1,6 +1,7 @@
 import { Person } from './../../models/person';
 import { Component, OnInit } from '@angular/core';
 import { PersonsService } from '../services/persons.service';
+import { MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-add-contact',
@@ -9,13 +10,18 @@ import { PersonsService } from '../services/persons.service';
 })
 export class AddContactComponent implements OnInit {
 
-  constructor(private personsService: PersonsService) { }
+  constructor(private personsService: PersonsService, public dialogRef: MatDialogRef<AddContactComponent>) { }
 
   ngOnInit() {
   }
 
   saveInDb(person: Person): void {
+    this.dialogRef.close(true);
     this.personsService.addPerson(person);
+  }
+
+  closeForm() {
+    this.dialogRef.close(false);
   }
 
 }
