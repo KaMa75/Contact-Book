@@ -28,13 +28,13 @@
       "id": 2
     },
     {
-      "id": 4,
-      "nick": "czarli",
+      "nick": "czarli12",
       "firstName": "Karol",
       "lastName": "Marszałek",
       "email": "karolmarszalek@o2.pl",
       "phone": "+48604753086",
-      "sex": "Mężczyzna"
+      "sex": "Mężczyzna",
+      "id": 4
     },
     {
       "id": 5,
@@ -71,15 +71,6 @@
       "phone": "+48000000000",
       "sex": "Mężczyzna",
       "id": 9
-    },
-    {
-      "nick": "asd",
-      "firstName": "a",
-      "lastName": "asd",
-      "email": "asd@asdsfasdfaasdasdasdsfdfdsaf",
-      "phone": "asd",
-      "sex": "Kobieta",
-      "id": 10
     }
   ]
 }
