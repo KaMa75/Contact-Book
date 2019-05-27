@@ -34,4 +34,5 @@ export class ContactListComponent implements OnInit {
       }
     });
   }
+
 }

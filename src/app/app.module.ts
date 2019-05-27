@@ -14,6 +14,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormComponent } from './form/form.component';
 import { DeleteDialogComponent } from './contact-list/delete-dialog/delete-dialog.component';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +33,9 @@ import { DeleteDialogComponent } from './contact-list/delete-dialog/delete-dialo
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MaterialModule
+    MaterialModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent],
