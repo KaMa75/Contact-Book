@@ -10,7 +10,7 @@ import { PersonsService } from '../services/persons.service';
 })
 export class DetailsContactComponent implements OnInit {
 
-  private person: Person;
+  public person: Person;
 
   constructor(private route: ActivatedRoute, private router: Router, private personsService: PersonsService) {  }
 

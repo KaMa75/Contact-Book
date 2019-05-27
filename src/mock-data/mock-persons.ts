@@ -2,7 +2,7 @@ import { Person } from '../models/person';
 
 export const personsData: Array<Person> = [
   {
-    id: 1,
+    _id: '1',
     nick: 'KaMa75',
     firstName: 'Karol',
     lastName: 'Marszałek',
@@ -11,7 +11,7 @@ export const personsData: Array<Person> = [
     sex: 'Mężczyzna'
   },
   {
-    id: 2,
+    _id: '2',
     nick: 'Czarek',
     firstName: 'Cezar',
     lastName: 'Grabowski',
@@ -20,7 +20,7 @@ export const personsData: Array<Person> = [
     sex: 'Mężczyzna'
   },
   {
-    id: 3,
+    _id: '3',
     nick: 'Franceska',
     firstName: 'Franciszka',
     lastName: 'Sobczak',
