@@ -1,0 +1,19 @@
+.mat-card:first-child {
+  padding: 0;
+  margin-bottom: 2rem;
+}
+
+.mat-card:last-child {
+  border: none;
+}
+
+.mat-dialog-actions {
+  margin-top: 1.5rem;
+  margin-bottom: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.lead {
+  margin-bottom: 4px;
+}

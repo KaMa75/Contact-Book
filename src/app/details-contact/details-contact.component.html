@@ -1,4 +1,35 @@
-<p>
-  {{person.nick}}, {{person.firstName}} {{person.lastName}}, {{person.email}}, {{person.phone}}, {{person.sex}}
-</p>
-<button routerLink="">Powrót</button>
+<ng-container *ngIf="person">
+  <mat-card>
+
+    <mat-toolbar>
+      Szczegóły kontaktu
+    </mat-toolbar>
+
+    <mat-card>
+      <mat-card-content>
+
+        <mat-list>
+          <mat-list-item>Nick: {{person.nick}}</mat-list-item>
+          <mat-divider></mat-divider>
+          <mat-list-item>Imię: {{person.firstName}}</mat-list-item>
+          <mat-divider></mat-divider>
+          <mat-list-item>Nazwisko: {{person.lastName}}</mat-list-item>
+          <mat-divider></mat-divider>
+          <mat-list-item>E-mail: {{person.email}}</mat-list-item>
+          <mat-divider></mat-divider>
+          <mat-list-item>Telefon: {{person.phone}}</mat-list-item>
+          <mat-divider></mat-divider>
+          <mat-list-item>Płeć: {{person.sex}}</mat-list-item>
+        </mat-list>
+
+        <div mat-dialog-actions>
+          <mat-card-actions>
+            <button mat-flat-button color="primary" routerLink="">Powrót</button>
+          </mat-card-actions>
+        </div>
+
+      </mat-card-content>
+    </mat-card>
+  </mat-card>
+</ng-container>
+
