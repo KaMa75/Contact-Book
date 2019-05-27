@@ -32,12 +32,13 @@ export class PersonsService {
   }
 
   getPersonFromId(id: string): Person {
-    const personArr = this.persons.filter(person => person.id === parseInt(id, 10));
+    const personArr = this.persons.filter(person => person._id === id);
+    // const personArr = this.persons.filter(person => person.id === parseInt(id, 10));
     return personArr[0];
   }
 
   deletePerson(personToDelete: Person): void {
-    this.httpService.deletePersonFromDb(personToDelete.id).subscribe(
+    this.httpService.deletePersonFromDb(personToDelete._id).subscribe(
       resp => {
         this.persons = this.persons.filter((person: Person) => person !== personToDelete);
         this.personsObs.next(this.persons);
@@ -53,7 +54,7 @@ export class PersonsService {
     this.router.navigate(['']);
     this.httpService.updatePersonInDb(personToUpdate).subscribe(
       resp => {
-        const index = this.findPersonInArray(resp.id);
+        const index = this.findPersonInArray(resp._id);
         this.persons[index] = resp;
         this.personsObs.next([...this.persons]);
         this.toastr.success(`Kontakt ${personToUpdate.firstName} ${personToUpdate.lastName} został poprawnie zaktualizowany`);
@@ -64,8 +65,8 @@ export class PersonsService {
     );
   }
 
-  findPersonInArray(id: number): number {
-    return this.persons.indexOf(this.persons.filter((person: Person) => person.id === id)[0]);
+  findPersonInArray(id: string): number {
+    return this.persons.indexOf(this.persons.filter((person: Person) => person._id === id)[0]);
   }
 
   addPerson(personToAdd: Person): void {

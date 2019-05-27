@@ -1,5 +1,6 @@
 export class Person {
-  id?: number;
+  // id?: number;
+  _id?: string;
   nick: string;
   firstName: string;
   lastName: string;

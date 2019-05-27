@@ -85,12 +85,12 @@
           </th>
           <td mat-cell *matCellDef="let element">
             <div class="actions-td">
-                <button class="mx-1" mat-icon-button color="primary" matTooltip="Szczegóły" matTooltipPosition="above" [routerLink]="['/clients/details', element.id]">
+                <button class="mx-1" mat-icon-button color="primary" matTooltip="Szczegóły" matTooltipPosition="above" [routerLink]="['/clients/details', element._id]">
                   <mat-icon color="primary">
                     perm_identity
                   </mat-icon>
                 </button>
-                <button class="mx-1" mat-icon-button color="primary" matTooltip="Edytuj" matTooltipPosition="above" [routerLink]="['/clients/edit', element.id]">
+                <button class="mx-1" mat-icon-button color="primary" matTooltip="Edytuj" matTooltipPosition="above" [routerLink]="['/clients/edit', element._id]">
                   <mat-icon color="primary">
                     create
                   </mat-icon>
